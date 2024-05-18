@@ -140,7 +140,9 @@ public class VLCUtil {
                     // "clflush size" is a x86-specific cpuinfo tag.
                     // (see kernel sources arch/x86/kernel/cpu/proc.c)
                 else if (line.contains("clflush size"))
-                    hasX86 = true;
+                    {
+                        hasX86 = true;
+                    }
                 else if (line.contains("GenuineIntel"))
                     hasX86 = true;
                 else if (line.contains("placeholder"))
@@ -150,7 +152,9 @@ public class VLCUtil {
                     // "microsecond timers" is specific to MIPS.
                     // see arch/mips/kernel/proc.c
                 else if (line.contains("microsecond timers"))
-                    hasMips = true;
+                    {
+                        hasMips = true;
+                    }
                 if (line.contains("neon") || line.contains("asimd"))
                     hasNeon = true;
                 if (line.contains("vfp") || (line.contains("Features") && line.contains("fp")))
@@ -228,7 +232,9 @@ public class VLCUtil {
             br = new BufferedReader(fileReader);
             line = br.readLine();
             if (line != null)
-                frequency = Float.parseFloat(line) / 1000.f; /* Convert to MHz */
+                {
+                    frequency = Float.parseFloat(line) / 1000.f;
+                } /* Convert to MHz */
         } catch (IOException ex) {
             Log.w(TAG, "Could not find maximum CPU frequency!");
         } catch (NumberFormatException e) {
